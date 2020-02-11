@@ -25,6 +25,7 @@ extents = Vector2( 239.562, 24.259 )
 
 [node name="ground" type="Area2D"]
 position = Vector2( 238.911, 451.342 )
+collision_layer = 16
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

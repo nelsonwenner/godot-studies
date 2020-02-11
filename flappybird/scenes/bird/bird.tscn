@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://art/flying/frame-1.png" type="Texture" id=1]
+[ext_resource path="res://art/flying/frame-2.png" type="Texture" id=2]
+[ext_resource path="res://art/flying/frame-7.png" type="Texture" id=3]
+[ext_resource path="res://art/flying/frame-3.png" type="Texture" id=4]
+[ext_resource path="res://art/flying/frame-4.png" type="Texture" id=5]
+[ext_resource path="res://art/flying/frame-5.png" type="Texture" id=6]
+[ext_resource path="res://art/flying/frame-6.png" type="Texture" id=7]
+[ext_resource path="res://art/flying/frame-8.png" type="Texture" id=8]
+[ext_resource path="res://scenes/bird/bird.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "fly",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "flying"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="bird" type="Area2D"]
+position = Vector2( 126.014, 325.058 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 1 )
+animation = "fly"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/flying = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 1e-05, 1e-05 )
+
+[node name="RotationBeginTimout" type="Timer" parent="."]
+wait_time = 0.75
+[connection signal="timeout" from="RotationBeginTimout" to="." method="_on_RotationBeginTimout_timeout"]
