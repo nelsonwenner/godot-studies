@@ -15,8 +15,17 @@ _global_script_class_icons={
 
 [application]
 
-config/name="flappy-bird"
-config/icon="res://icon.png"
+config/name="flappybird"
+run/main_scene="res://scenes/main/main.tscn"
+
+[display]
+
+window/size/width=480
+window/size/height=640
+window/size/resizable=false
+window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 
