@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="background" type="ColorRect"]
+margin_right = 480.0
+margin_bottom = 720.0
+color = Color( 0.219608, 0.372549, 0.380392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

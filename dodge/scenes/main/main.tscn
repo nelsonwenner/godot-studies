@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/main/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/background/background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/hud/hud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audios/House In a Forest Loop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audios/gameover.wav" type="AudioStream" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.202271, 0.0404539, 0, 0, 0, 0, 479.983, 0.00996971, 0, 0, 0, 0, 479.96, 719.976, 0, 0, 0, 0, -0.0170755, 719.996, 0, 0, 0, 0, 0.202271, 0.0404539 )
+}
+
+[node name="main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="background" parent="." instance=ExtResource( 3 )]
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+
+[node name="enemy_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="score_timer" type="Timer" parent="."]
+
+[node name="start_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="start_position" type="Position2D" parent="."]
+position = Vector2( 240, 450 )
+
+[node name="anemy_path" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="anemy_spawn_location" type="PathFollow2D" parent="anemy_path"]
+position = Vector2( 0.202271, 0.0404539 )
+rotation = -6.35381e-05
+
+[node name="hud" parent="." instance=ExtResource( 4 )]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+[connection signal="hit" from="player" to="." method="_game_over"]
+[connection signal="timeout" from="enemy_timer" to="." method="_on_enemy_timer"]
+[connection signal="timeout" from="score_timer" to="." method="_on_score_timer"]
+[connection signal="timeout" from="start_timer" to="." method="_on_start_timer"]
+[connection signal="start_game" from="hud" to="." method="_new_game"]
