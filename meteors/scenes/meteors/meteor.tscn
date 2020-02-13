@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/meteor.png" type="Texture" id=1]
+[ext_resource path="res://scenes/meteors/meteor.gd" type="Script" id=2]
+
+[node name="meteor" type="Sprite"]
+position = Vector2( 514.078, 283.531 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
