@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="platformer(tutorial)"
+run/main_scene="res://src/main/main.tscn"
 config/icon="res://icon.png"
 
 [display]

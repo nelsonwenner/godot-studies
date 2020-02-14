@@ -20,7 +20,6 @@ __meta__ = {
 }
 speed = Vector2( 800, 1350 )
 gravity = 3500.0
-stomp_impulce = 1600.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -48.14 )
@@ -35,6 +34,7 @@ position = Vector2( -1, -218 )
 current = true
 limit_left = 0
 limit_top = 0
+limit_right = 4158
 limit_bottom = 720
 limit_smoothed = true
 smoothing_enabled = true
