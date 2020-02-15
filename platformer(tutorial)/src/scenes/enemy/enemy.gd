@@ -14,10 +14,8 @@ func _ready():
 	
 
 func _physics_process(delta):
-	self.velocity.y = self.gravity * delta
-	if is_on_wall():
-		self.velocity.x *= -1.0
 	self.velocity.y = move_and_slide(self.velocity, self.FLOOR_NORMAL).y
+	self.velocity.x *= -1 if is_on_wall() else 1
 
 
 func die():
