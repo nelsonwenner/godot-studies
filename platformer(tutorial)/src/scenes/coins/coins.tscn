@@ -55,6 +55,7 @@ tracks/1/keys = {
 
 [node name="coins" type="Area2D"]
 position = Vector2( 0, 10 )
+monitorable = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
