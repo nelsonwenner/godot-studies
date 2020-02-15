@@ -16,7 +16,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-speed = Vector2( 400, 500 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.340561, -46.8393 )
