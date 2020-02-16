@@ -9,8 +9,7 @@ func _on_stomp_detector_area_entered(area):
 
 
 func _on_enemy_detector_body_entered(body):
-	print("enemy -> detect")
-	queue_free()
+	die()
 
 
 func _physics_process(delta):
@@ -42,3 +41,7 @@ func calc_stomp_velocity(linear_velocity, impulce):
 	out.y = -impulce
 	return out
 	
+
+func die():
+	playerdata.deaths += 1
+	queue_free()

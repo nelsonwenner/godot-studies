@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/montserrat_extrabold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/screens/start/quit_button.gd" type="Script" id=2]
+[ext_resource path="res://arts/environment/background.png" type="Texture" id=3]
+[ext_resource path="res://src/screens/end/play_again.gd" type="Script" id=4]
+[ext_resource path="res://src/screens/end/end.gd" type="Script" id=5]
+[ext_resource path="res://arts/environment/ui_theme.tres" type="Theme" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 21
+font_data = ExtResource( 1 )
+
+[node name="end" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -505.0
+margin_top = -205.0
+margin_right = 521.0
+margin_bottom = -145.0
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations, you finished the game!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -105.0
+margin_right = 114.0
+margin_bottom = -54.0
+custom_fonts/font = SubResource( 2 )
+text = "Your final score is: %s.
+  You diad times: %s."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.0
+margin_top = -14.0
+margin_right = 189.0
+margin_bottom = 142.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play_again" type="Button" parent="VBoxContainer"]
+margin_right = 368.0
+margin_bottom = 76.0
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 3 )
+text = "Play Again"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_button" type="Button" parent="VBoxContainer"]
+margin_top = 80.0
+margin_right = 368.0
+margin_bottom = 156.0
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 4 )
+text = "Quit"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="VBoxContainer/play_again" to="VBoxContainer/play_again" method="_on_play_again_button_up"]
+[connection signal="button_up" from="VBoxContainer/quit_button" to="VBoxContainer/quit_button" method="_on_quit_button_up"]

@@ -24,6 +24,10 @@ config/name="platformer(tutorial)"
 run/main_scene="res://src/main/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+playerdata="*res://src/autoload/playerdata.tscn"
+
 [display]
 
 window/size/width=1920
@@ -49,6 +53,11 @@ move_right={
 jump={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
  ]
 }
 
