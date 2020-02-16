@@ -1,6 +1,8 @@
 extends "res://src/scripts/Actor.gd"
 
 
+var score = 100
+
 func _on_stomp_detect_body_entered(body):
 	print("stomp -> collided")
 	if body.global_position.y > $stomp_area.global_position.y:
@@ -20,3 +22,4 @@ func _physics_process(delta):
 
 func die():
 	queue_free()
+	playerdata.score += score

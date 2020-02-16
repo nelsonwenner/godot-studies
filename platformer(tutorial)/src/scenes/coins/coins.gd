@@ -1,13 +1,17 @@
 extends Area2D
 
 
+var score = 100
+
+
 func _on_coins_body_entered(body):
-	$AnimationPlayer.play("fade_out")
+	picked()
 
 
 func _ready():
 	$AnimationPlayer.play("bounsing")
 	
 
-func _process(delta):
-	pass
+func picked():
+	playerdata.score += score
+	$AnimationPlayer.play("fade_out")

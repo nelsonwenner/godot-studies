@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://arts/environment/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/background/background.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/scenes/enemy/enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/scenes/coins/coins.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/scenes/portal/portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/screens/pause/pause.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -33,6 +34,11 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -575.0, 1108.0 ],
 "_edit_vertical_guides_": [ 7248.0 ]
 }
+
+[node name="usermenu" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="pause" parent="usermenu" instance=ExtResource( 7 )]
 
 [node name="background" parent="." instance=ExtResource( 2 )]
 
